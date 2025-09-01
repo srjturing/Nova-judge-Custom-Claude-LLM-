@@ -193,7 +193,7 @@ with st.form("llm_form", clear_on_submit=False):
         )
 
     overall_judgment = st.text_area(
-        "6) OVERALL JUDGMENT & SUMMARY",
+        "6) Preference Explanation",
         height=160,
         placeholder="State the decision (A > B, B > A, or Tie) and a concise written summary (10–60 words)…"
     )
@@ -222,7 +222,7 @@ if submitted:
     if not response_a: missing.append("RESPONSE 01 (Model A)")
     if not response_b: missing.append("RESPONSE 02 (Model B)")
     if not criteria_block: missing.append("EVALUATION CRITERIA")
-    if overall_judgment.strip() == "": missing.append("OVERALL JUDGMENT & SUMMARY")
+    if overall_judgment.strip() == "": missing.append("Preference Explanation")
 
     if missing:
         st.warning("Please provide: " + ", ".join(missing))
@@ -300,7 +300,7 @@ if submitted:
         "### REPORTED FINAL SCORES",
         f"Model A: {reported_score_a}",
         f"Model B: {reported_score_b}",
-        "### OVERALL JUDGMENT & SUMMARY",
+        "### Preference Explanation",
         overall_judgment.strip(),
         "### NOTES FOR REVIEWER",
         (
